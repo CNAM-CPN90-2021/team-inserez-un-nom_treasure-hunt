@@ -5,7 +5,7 @@
 ```
 Dossier avant-projet :
 
-    Scénario Utilisateur
+    Scénario Utilisateur (avec 3/4 étapes et en faire un JSON)
     Fonctionnalités attendues, point de difficulté
     Mise en page et apparence
     Liste de composants
