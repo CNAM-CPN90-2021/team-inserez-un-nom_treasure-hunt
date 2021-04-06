@@ -14,4 +14,22 @@ Dossier avant-projet :
     Navigation
 ```
 
-Scénario : Indiana Jones/Benjamin Gates, recherche de relique à travers des énigmes
+Idée
+
+Escape game grandeur nature.
+Liste d'énigme à résoudre dans une zone géographique restreinte (sinon la partie est perdue) et en temps restreint.
+
+Objectifs
+
+Faire découvrir de petits endroits atypiques d'une ville à travers des scénarios triés par niveau de difficulté.
+Raconter une histoire à travers un jeu réaliseable en famille, entre amis, voir même seul.
+
+Scénario
+
+Lieu : Place de la réunion
+
+Étapes :
+- Trouver la date de construction du temple Saint-Etienne
+- Trouver les trois lettres en haut au milieu du vitrail David tue Goliath
+- Trouver le QR code placé sur une rambarde qui indiquera les positions gps de la prochaine énigme
+- Quel est le nom inscrit sur la colonne (place Lambert)
