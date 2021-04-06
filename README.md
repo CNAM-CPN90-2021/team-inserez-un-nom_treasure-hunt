@@ -33,3 +33,12 @@ Lieu : Place de la réunion
 - Trouver les trois lettres en haut au milieu du vitrail David tue Goliath
 - Trouver le QR code placé sur une rambarde qui indiquera les positions gps de la prochaine énigme
 - Quel est le nom inscrit sur la colonne (place Lambert)
+
+Liste d'écrans
+- Écran d'accueil : carte avec zône à pas franchir et position actuelle + possibilité de demander un indice
+- Énigme en cours : texte de l'énigme + formulaire pour la réponse (différent type)
+
+WireFrame : 
+https://xd.adobe.com/view/be4e3dd5-187d-4f0c-adaa-7486c9b069b7-eb1d/
+
+
