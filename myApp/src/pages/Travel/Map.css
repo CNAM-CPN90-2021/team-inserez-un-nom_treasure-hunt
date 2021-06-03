@@ -1,0 +1,18 @@
+
+
+.marker-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--ion-color-primary);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.position-marker {
+  background: var(--ion-color-secondary);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 10px rgba(var(--ion-color-secondary-rgb), .5);
+}

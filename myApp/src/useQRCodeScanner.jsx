@@ -1,5 +1,5 @@
 import { Plugins } from "@capacitor/core";
-import { getPlatforms, isPlatform } from "@ionic/react";
+import { isPlatform } from "@ionic/react";
 import { useEffect } from "react";
 
 async function didUserGrantPermission() {
@@ -71,9 +71,6 @@ function prepare() {
 async function startScan() {
   const { BarcodeScanner } = Plugins;
 
-  BarcodeScanner.hideBackground(); // make background of WebView transparent
-  document.body.style.setProperty("opacity", 0.1);
-
   const granted = await didUserGrantPermission();
   if (!granted) {
     window.alert(
@@ -81,8 +78,9 @@ async function startScan() {
     );
     return { hasContent: false };
   }
+
+  BarcodeScanner.hideBackground(); // make background of WebView transparent
   const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
-  document.body.style.setProperty("opacity", 1);
   return result;
 }
 
@@ -93,7 +91,6 @@ function stopScan() {
 
   const { BarcodeScanner } = Plugins;
   BarcodeScanner.showBackground();
-  document.body.style.setProperty("opacity", 1);
   BarcodeScanner.stopScan();
 }
 
