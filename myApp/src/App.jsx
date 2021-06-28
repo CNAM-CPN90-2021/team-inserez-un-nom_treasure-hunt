@@ -11,6 +11,7 @@ import { BagStateProvider } from "./bagContext";
 import { HealthContextProvider } from "./useHealth";
 import { TimerContextProvider } from "./useTimer";
 
+
 import "./theme/index.css";
 import { Travel } from "./pages/Travel";
 import { Entrance } from "./pages/Entrance";

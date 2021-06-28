@@ -4,6 +4,7 @@ import { PageLayout } from "../components/PageLayout";
 import { useQRCodeScanner } from "../useQRCodeScanner";
 import { Plugins } from '@capacitor/core';
 
+
 export function Entrance() {
   const [isScanning, setIsScanning] = useState(false);
   const [showToast] = useIonToast();

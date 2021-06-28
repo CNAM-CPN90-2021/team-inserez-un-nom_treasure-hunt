@@ -8,7 +8,7 @@ export function PageLayout(props) {
   const { title, footer, children } = props;
 
   const { playerHealth, setPlayerHealth } = useHealth();
-  const { playerTimer, setPlayerTimer } = useTimer();
+  const { playerTimer, setPlayerTime } = useTimer();
 
   return (
     <IonPage>
@@ -18,13 +18,13 @@ export function PageLayout(props) {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton>
-          <p>{playerHealth} PV</p>
+            <p>{playerHealth} PV</p>
           </IonFabButton>
         </IonFab>
 
         <IonFab vertical="bottom" horizontal="start" slot="fixed">
           <IonFabButton>
-          <p>{playerTimer} min</p>
+            <p>{playerTimer} min</p>
           </IonFabButton>
         </IonFab>
 

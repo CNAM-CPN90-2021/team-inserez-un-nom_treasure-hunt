@@ -10,12 +10,12 @@ import {
 import { useState } from "react";
 import { useBag } from "../bagContext";
 import { PageLayout } from "../components/PageLayout";
-
+import { useTimer } from "../useTimer";
 
 export function Bag() {
   const [selected, setSelected] = useState();
   const bag = useBag();
-
+  const { playerTimer, setPlayerTimer, start, isStarted, setIsStarted } = useTimer();
 
   return (
     <PageLayout
@@ -28,6 +28,7 @@ export function Bag() {
               routerLink="/adventure/1/travel"
               onClick={() => {
                 bag.add(selected);
+                setPlayerTimer(60);
               }}
             >
               En route !
@@ -36,7 +37,7 @@ export function Bag() {
         )
       }
     >
-      
+
       <h1>Préparation du sac</h1>
       <p>
         C'est parti pour une séance de Canyoning dans l'ancestrale vallée
