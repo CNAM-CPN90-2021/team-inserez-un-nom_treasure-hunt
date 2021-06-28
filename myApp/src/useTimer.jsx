@@ -7,7 +7,7 @@ export function useTimer(){
 }
 
 export function TimerContextProvider(props) {
-    const [playerTimer, setPlayerTimer] = useState();
+    const [playerTimer, setPlayerTimer] = useState(12);
     const timer = {playerTimer, setPlayerTimer};
 
     return (

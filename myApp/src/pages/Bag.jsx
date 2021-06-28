@@ -11,9 +11,11 @@ import { useState } from "react";
 import { useBag } from "../bagContext";
 import { PageLayout } from "../components/PageLayout";
 
+
 export function Bag() {
   const [selected, setSelected] = useState();
   const bag = useBag();
+
 
   return (
     <PageLayout
@@ -34,6 +36,7 @@ export function Bag() {
         )
       }
     >
+      
       <h1>Préparation du sac</h1>
       <p>
         C'est parti pour une séance de Canyoning dans l'ancestrale vallée
