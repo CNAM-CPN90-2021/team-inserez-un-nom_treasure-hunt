@@ -46,26 +46,23 @@ export function Entrance() {
 
   return (
     <PageLayout
-      title="L'entrée de la vallée"
+      title="Trouver le Qr-Code"
       footer={
         <IonButton expand="full" routerLink="/" routerDirection="root">
           Retour à l'accueil
         </IonButton>
       }
     >
-      <h1>Le qr-code</h1>
+      <h1>Le Qr-code</h1>
       <p>
-        Après un long périple, vous vous retrouvez devant une porte majestueuse
+        Vous voilà donc sur l'escalier de l'Hôtel de ville
       </p>
 
       <p>
-        Vous pouvez y lire l'inscription suivante :
+        Regardez maintenant vers la place, vous pouvez profiter de la vue mais faites vite le temps est compté !
         <br />
         <br />
-        <code>
-          Au valeureux voyageur qui trouvera le cuillère-code, la porte
-          s'ouvrira. // TODO
-        </code>
+        Il vous faudra maintenant baisser les yeux pour trouver un Qr Code dissimulé quelque par sur l'escalier
       </p>
       <IonButton
         onClick={async () => {
@@ -85,7 +82,7 @@ export function Entrance() {
 
         }}
       >
-        Scanner le cuillère-code
+        Scanner le Qr-code
       </IonButton>
     </PageLayout>
   );

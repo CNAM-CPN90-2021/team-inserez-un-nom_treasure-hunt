@@ -16,14 +16,14 @@ const mapStyleUrl =
 export function Map() {
   const history = useHistory();
   const [viewport, setViewport] = useState({
-    latitude: 47.7386289,
-    longitude: 7.3293385,
-    zoom: 13,
+    latitude: 47.746589,
+    longitude: 7.339197,
+    zoom: 20,
   });
 
   const destination = {
-    latitude: 47.7386289,
-    longitude: 7.3293385,
+    latitude: 47.746589,
+    longitude: 7.339197,
   };
 
   const currentPosition = useSimulatedPosition();
@@ -36,7 +36,7 @@ export function Map() {
         { units: "meters" }
       )
     : Infinity;
-  const isCloseEnough = distanceToDestination < 100;
+  const isCloseEnough = distanceToDestination < 5;
 
   useEffect(() => {
     if (isCloseEnough) {

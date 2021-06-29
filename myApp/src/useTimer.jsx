@@ -15,9 +15,6 @@ export function TimerContextProvider(props) {
     }
 
     const startTimer = () => {
-        if(isStarted === true){
-            
-        } 
         
     }
 

@@ -10,16 +10,17 @@ import {
 import { useState } from "react";
 import { useBag } from "../bagContext";
 import { PageLayout } from "../components/PageLayout";
+import { useHealth } from "../useHealth";
 import { useTimer } from "../useTimer";
 
 export function Bag() {
   const [selected, setSelected] = useState();
   const bag = useBag();
   const { playerTimer, setPlayerTimer, start, isStarted, setIsStarted } = useTimer();
-
+  const { playerHealth, setPlayerHealth } = useHealth();
   return (
     <PageLayout
-      title="Préparez votre sac"
+      title="Première épreuve"
       footer={
         selected && (
           <IonFooter>
@@ -27,21 +28,23 @@ export function Bag() {
               expand="full"
               routerLink="/adventure/1/travel"
               onClick={() => {
-                bag.add(selected);
+                if(selected === "false"){
+                  setPlayerHealth(playerHealth - 10)
+                  alert("Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie")
+                }
                 setPlayerTimer(60);
               }}
             >
-              En route !
+              Valider la réponse
             </IonButton>
           </IonFooter>
         )
       }
     >
 
-      <h1>Préparation du sac</h1>
+      <h1>Première épreuve</h1>
       <p>
-        C'est parti pour une séance de Canyoning dans l'ancestrale vallée
-        du Oueb.
+        Trouver la date de construction du temple Saint-Etienne
       </p>
 
       <IonRadioGroup
@@ -49,17 +52,22 @@ export function Bag() {
         onIonChange={(e) => setSelected(e.detail.value)}
       >
         <IonListHeader>
-          <IonLabel>Que mettez-vous dans votre sac ?</IonLabel>
+          <IonLabel>Quand à débuté la construction du templs Saint-Etienne</IonLabel>
         </IonListHeader>
 
         <IonItem>
-          <IonLabel>Un baudrier, une corde et des dégaines</IonLabel>
-          <IonRadio slot="start" value="gears" />
+          <IonLabel>1866</IonLabel>
+          <IonRadio value="false" />
         </IonItem>
 
         <IonItem>
-          <IonLabel>Un clavier fera l'affaire</IonLabel>
-          <IonRadio slot="start" value="keyboard" />
+          <IonLabel>1859</IonLabel>
+          <IonRadio value="true" />
+        </IonItem>
+
+        <IonItem>
+          <IonLabel>1848</IonLabel>
+          <IonRadio value="false" />
         </IonItem>
       </IonRadioGroup>
     </PageLayout>

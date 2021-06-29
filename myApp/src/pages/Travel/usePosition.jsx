@@ -20,9 +20,9 @@ export function useRealPosition() {
 }
 
 export function useSimulatedPosition() {
-  const from = { latitude: 47.7426476, longitude: 7.3407563 };
-  const to = { latitude: 47.7386289, longitude: 7.3293385 };
-  const speed = 0.02; // from 0 to 1
+  const from = { latitude: 47.746867, longitude: 7.338465 };
+  const to = { latitude: 47.746589, longitude: 7.339197 };
+  const speed = 0.01; // from 0 to 1
   const refresh = 50; // ms
 
   const [currentPosition, setPosition] = useState(from);
