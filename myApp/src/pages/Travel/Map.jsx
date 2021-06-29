@@ -49,8 +49,8 @@ export function Map() {
       {...viewport}
       mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
       mapStyle={`${mapStyleUrl}?access_token=${MAPBOX_ACCESS_TOKEN}`}
-      width="90%"
-      height="90%"
+      width="100%"
+      height="100%"
       onViewportChange={(viewport) => setViewport(viewport)}
     >
       <DestinationMarker {...destination} />
