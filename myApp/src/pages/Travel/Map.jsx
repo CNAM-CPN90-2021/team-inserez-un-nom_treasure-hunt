@@ -11,7 +11,7 @@ import { point } from "@turf/helpers";
 import { useHistory } from "react-router";
 
 const mapStyleUrl =
-  "https://api.mapbox.com/styles/v1/mapbox/cjtep62gq54l21frr1whf27ak";
+  "mapbox://styles/mapbox/dark-v10";
 
 export function Map() {
   const history = useHistory();
