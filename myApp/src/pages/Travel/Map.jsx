@@ -29,6 +29,14 @@ export function Map() {
   const currentPosition = useSimulatedPosition();
   // const currentPosition = useRealPosition();
 
+  function calculLimite(radius) {
+    return 2 * Math.PI * radius;
+  }
+  const limitationDestination = curentPosition > calculLimite(3);
+  if (limitationDestination) {
+   <p>Out of Limit</p>;
+  };
+
   const distanceToDestination = currentPosition
     ? distance(
         point([destination.latitude, destination.longitude]),
@@ -47,6 +55,7 @@ export function Map() {
   return (
     <ReactMapGL
       {...viewport}
+      MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoic3ByYWNrIiwiYSI6ImNrbzlxYmd5djBqaTkycHAybjAzNGoxdGsifQ.I-WqUL5Q80fN1H_-TU63kw'
       mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
       mapStyle={`${mapStyleUrl}?access_token=${MAPBOX_ACCESS_TOKEN}`}
       width="100%"
@@ -98,3 +107,16 @@ function PositionMarker(props) {
     </Marker>
   );
 }
+
+function maPosition(position) {
+  var infopos = "Position déterminée :\n";
+  infopos += "Latitude : "+position.coords.latitude +"\n";
+  infopos += "Longitude: "+position.coords.longitude+"\n";
+  infopos += "Altitude : "+position.coords.altitude +"\n";
+  document.getElementById("infoposition").innerHTML = infopos;
+}
+
+if(navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(maPosition);
+
+
