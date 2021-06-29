@@ -28,7 +28,7 @@ export function Bag() {
               expand="full"
               routerLink="/adventure/1/travel"
               onClick={() => {
-                if(selected === "false"){
+                if(selected != "true"){
                   setPlayerHealth(playerHealth - 10)
                   alert("Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie")
                 }
@@ -57,7 +57,7 @@ export function Bag() {
 
         <IonItem>
           <IonLabel>1866</IonLabel>
-          <IonRadio value="false" />
+          <IonRadio value="false1" />
         </IonItem>
 
         <IonItem>
@@ -67,7 +67,7 @@ export function Bag() {
 
         <IonItem>
           <IonLabel>1848</IonLabel>
-          <IonRadio value="false" />
+          <IonRadio value="false2" />
         </IonItem>
       </IonRadioGroup>
     </PageLayout>
