@@ -7,8 +7,8 @@ import { createContext, useContext, useState } from "react";
 export function PageLayout(props) {
   const { title, footer, children } = props;
 
-  const { playerHealth, setPlayerHealth } = useHealth();
-  const { playerTimer, setPlayerTime } = useTimer();
+  const { playerHealth } = useHealth();
+  const { playerTimer } = useTimer();
 
   return (
     <IonPage>

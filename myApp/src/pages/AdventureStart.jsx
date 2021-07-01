@@ -1,14 +1,22 @@
 import { IonButton } from "@ionic/react";
 import { PageLayout } from "../components/PageLayout";
 import { useHealth } from "../useHealth";
+import { useTimer } from "../useTimer";
+import { useEffect } from "react";
 
 export function AdventureStart() {
   const { playerHealth, setPlayerHealth } = useHealth();
+  const { playerTimer, increment, isStarted, setIsStarted, setInitialeTimer } = useTimer();
+
   return (
     <PageLayout
       title="Épisode 1 — La cascade des feuilles de Sty'hl"
       footer={
-        <IonButton routerLink="/adventure/1/bag" expand="full" onClick={() => { setPlayerHealth(100) }}>
+        <IonButton routerLink="/adventure/1/bag" expand="full" onClick={() => {
+          setPlayerHealth(100)
+          setInitialeTimer(5)
+          setIsStarted(true)
+        }}>
           Débuter l'aventure
         </IonButton>
       }

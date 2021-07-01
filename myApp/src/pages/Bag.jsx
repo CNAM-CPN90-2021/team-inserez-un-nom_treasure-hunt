@@ -16,7 +16,7 @@ import { useTimer } from "../useTimer";
 export function Bag() {
   const [selected, setSelected] = useState();
   const bag = useBag();
-  const { playerTimer, setPlayerTimer, start, isStarted, setIsStarted } = useTimer();
+  const { playerTimer, increment, isStarted, setIsStarted } = useTimer();
   const { playerHealth, setPlayerHealth } = useHealth();
   return (
     <PageLayout
@@ -32,7 +32,7 @@ export function Bag() {
                   setPlayerHealth(playerHealth - 10)
                   alert("Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie")
                 }
-                setPlayerTimer(60);
+                
               }}
             >
               Valider la réponse
