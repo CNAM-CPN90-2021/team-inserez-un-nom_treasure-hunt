@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router";
+import { usePartie } from "./partieContext";
 
 let TimerContext = createContext({});
 
@@ -18,10 +19,10 @@ export function TimerContextProvider(props) {
         return [playerTimer, increment]
     }
 
-    const [initialeTimer, setInitialeTimer] = useState(60);
+    const [initialeTimer, setInitialeTimer] = useState(2);
     const [playerTimer, increment] = useIncrement(initialeTimer, 1);
     const [isStarted, setIsStarted] = useState();
-
+    const partie = usePartie()
     let time;
 
     useEffect(() => {
@@ -44,11 +45,12 @@ export function TimerContextProvider(props) {
     useEffect (()=>{
         if(playerTimer <= 0){
             setIsStarted(false)
+            console.log(initialeTimer, playerTimer)
+            return partie.loose(initialeTimer - playerTimer, playerTimer - initialeTimer)
         }
     }, [playerTimer])
 
-
-    const timer = { playerTimer, increment, isStarted, setIsStarted, setInitialeTimer };
+    const timer = { playerTimer, increment, isStarted, setIsStarted, initialeTimer, setInitialeTimer };
 
     return (
         <TimerContext.Provider value={timer}>

@@ -15,7 +15,6 @@ import { useTimer } from "../useTimer";
 
 export function Bag() {
   const [selected, setSelected] = useState();
-  const bag = useBag();
   const { playerTimer, increment, isStarted, setIsStarted } = useTimer();
   const { playerHealth, setPlayerHealth } = useHealth();
   return (
