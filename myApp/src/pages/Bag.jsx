@@ -6,18 +6,23 @@ import {
   IonListHeader,
   IonFooter,
   IonButton,
+  IonAlert,
+  IonContent,
 } from "@ionic/react";
 import { useState } from "react";
 import { useBag } from "../bagContext";
 import { PageLayout } from "../components/PageLayout";
 import { useHealth } from "../useHealth";
 import { useTimer } from "../useTimer";
+import { useHistory } from "react-router";
 
 export function Bag() {
   const [selected, setSelected] = useState();
-  const bag = useBag();
-  const { playerTimer, setPlayerTimer, start, isStarted, setIsStarted } = useTimer();
+  const { playerTimer, increment, isStarted, setIsStarted } = useTimer();
   const { playerHealth, setPlayerHealth } = useHealth();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertContent, setAlertContent] = useState({ header: '', message: '', });
+  const history = useHistory();
   return (
     <PageLayout
       title="Première épreuve"
@@ -26,13 +31,15 @@ export function Bag() {
           <IonFooter>
             <IonButton
               expand="full"
-              routerLink="/adventure/1/travel"
               onClick={() => {
-                if(selected === "false"){
+                if (selected != "true") {
                   setPlayerHealth(playerHealth - 10)
-                  alert("Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie")
+                  setShowAlert(true)
+                  setAlertContent({ header: "Dommage", message: "Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie", })
+                } else {
+                  setShowAlert(true)
+                  setAlertContent({ header: "Bravo", message: "Vous avez bien répondu à la question", })
                 }
-                setPlayerTimer(60);
               }}
             >
               Valider la réponse
@@ -41,11 +48,27 @@ export function Bag() {
         )
       }
     >
+      
+        <IonAlert
+          
+          isOpen={showAlert}
+          onDidDismiss={  ()=> history.push('/adventure/1/travel') }
+          
+          cssClass='my-custom-class'
+          header={alertContent.header}
+          message={alertContent.message}
+          buttons={[{text : 'Continuer', }]}
+        />
+       
+      
+
 
       <h1>Première épreuve</h1>
       <p>
         Trouver la date de construction du temple Saint-Etienne
       </p>
+
+
 
       <IonRadioGroup
         value={selected}
@@ -57,7 +80,7 @@ export function Bag() {
 
         <IonItem>
           <IonLabel>1866</IonLabel>
-          <IonRadio value="false" />
+          <IonRadio value="false1" />
         </IonItem>
 
         <IonItem>
@@ -67,9 +90,9 @@ export function Bag() {
 
         <IonItem>
           <IonLabel>1848</IonLabel>
-          <IonRadio value="false" />
+          <IonRadio value="false2" />
         </IonItem>
       </IonRadioGroup>
-    </PageLayout>
+    </PageLayout >
   );
 }
