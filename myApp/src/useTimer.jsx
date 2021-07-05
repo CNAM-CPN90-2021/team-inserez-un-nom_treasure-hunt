@@ -19,14 +19,13 @@ export function TimerContextProvider(props) {
         return [playerTimer, increment]
     }
 
-    const [initialeTimer, setInitialeTimer] = useState(2);
+    const [initialeTimer, setInitialeTimer] = useState(60);
     const [playerTimer, increment] = useIncrement(initialeTimer, 1);
     const [isStarted, setIsStarted] = useState();
     const partie = usePartie()
     let time;
 
-    useEffect(() => {
-        
+    useEffect(() => {  
        if (isStarted === true) {
             time = window.setInterval(() => {
                 if(playerTimer <= 0) {
@@ -34,9 +33,7 @@ export function TimerContextProvider(props) {
                 } else {
                     increment()
                 }
-              
-
-            }, 1000)
+            }, 60000)
         } return function() {
             clearInterval(time)
         }

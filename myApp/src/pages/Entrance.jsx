@@ -1,7 +1,6 @@
 import { IonButton, useIonToast } from "@ionic/react";
 import { useState } from "react";
 import { PageLayout } from "../components/PageLayout";
-import { useQRCodeScanner } from "../useQRCodeScanner";
 import { Plugins } from '@capacitor/core';
 
 
@@ -34,7 +33,7 @@ export function Entrance() {
     BarcodeScanner.hideBackground();
     const result = await BarcodeScanner.startScan();
     if (result.hasContent) {
-      console.log(result.content);
+      //console.log(result.content);
     }
   };
 

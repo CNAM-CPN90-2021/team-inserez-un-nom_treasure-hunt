@@ -1,6 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { IonButton, IonContent, IonPage, useIonAlert, IonAlert } from '@ionic/react';
-import { Redirect } from "react-router";
 
 const PartieContext = createContext({});
 
@@ -14,33 +12,27 @@ export function PartieStateProvider(props) {
         partieState,
 
         loose: (duration, timeleft) => {
-            //setPartieDuration(duration);
-            //setPartieState('loosed');
-            //console.log('loose', partieDuration, duration, partieState)
-            function stop() {
-                alert('Temps écoulé partie perdu')
+            function stop(cause) {
+                if(cause === "time"){
+                    alert('Temps écoulé partie perdu')
+                } else if (cause === "lifePoint") {
+                    alert('Point de vie à zéro partie perdu')
+                }
                 window.location.href = '/'
             }
             if (timeleft <= 0) {
-                //alert('Temps écoulé partie perdu')
-                return stop()
+                return stop('time')
 
             } else {
-                //return alert('Partie perdu en ' + duration + ' minutes')
-                return stop()
+                return stop('lifePoint')
             }
-            //return (<div><p>Vous avez perdu en {partieDuration}</p><IonButton routerLink="/">Retourner à l'acceuil</IonButton></div>)
         },
 
         win: (duration) => {
             setPartieDuration(duration);
             setPartieState('win');
-
-            //return (<div><p>Vous avez gagné en {partieDuration}</p><IonButton routerLink="/">Retourner à l'acceuil</IonButton></div>)
         }
     };
-
-
 
     return <PartieContext.Provider value={partie}>{children}</PartieContext.Provider>
 }

@@ -13,8 +13,6 @@ export function AdventureStart() {
       title="Épisode 1 — La cascade des feuilles de Sty'hl"
       footer={
         <IonButton routerLink="/adventure/1/bag" expand="full" onClick={() => {
-          setPlayerHealth(100)
-          setInitialeTimer(5)
           setIsStarted(true)
         }}>
           Débuter l'aventure
