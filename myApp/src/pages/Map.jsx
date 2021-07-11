@@ -153,6 +153,7 @@ export function Map() {
           </ReactMapGL>
         </div>
 
+        {/* pensez à nettoyer le/mon code ;) */}
         <div className="container">
           On metttra une carte ici
           <p>Hello</p>

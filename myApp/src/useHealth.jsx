@@ -14,10 +14,10 @@ export function HealthContextProvider(props) {
   const { playerTimer, increment, isStarted, setIsStarted, initialeTimer, setInitialeTimer } = useTimer 
 
   useEffect(() => {
-    if(playerHealth <= 0){
-      partie.loose(initialeTimer - playerTimer, playerTimer - initialeTimer)
+    if (playerHealth <= 0) {
+      partie.loose(initialeTimer - playerTimer, playerTimer - initialeTimer);
     }
-  }, playerHealth)
+  }, [playerHealth]);
 
   const health = { playerHealth, setPlayerHealth };
 
