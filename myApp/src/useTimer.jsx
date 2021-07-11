@@ -8,35 +8,40 @@ export function useTimer() {
     return useContext(TimerContext);
 }
 
+function useDecrement(initial, step) {
+  const [playerTimer, setPlayerTimer] = useState(initial);
+
+  const decrement = () => {
+    setPlayerTimer((p) => p - step);
+  };
+  return [playerTimer, decrement];
+}
+
 export function TimerContextProvider(props) {
 
-    function useIncrement(initial, step){
-        const [playerTimer, setPlayerTimer] = useState(initial);
-
-        const increment = () => {
-            setPlayerTimer(p => p - step)
-        }
-        return [playerTimer, increment]
-    }
+    
 
     const [initialeTimer, setInitialeTimer] = useState(60);
-    const [playerTimer, increment] = useIncrement(initialeTimer, 1);
+    const [playerTimer, increment] = useDecrement(initialeTimer, 1);
     const [isStarted, setIsStarted] = useState();
     const partie = usePartie()
-    let time;
+    
 
     useEffect(() => {  
+
        if (isStarted === true) {
-            time = window.setInterval(() => {
+            let timerID = window.setInterval(() => {
                 if(playerTimer <= 0) {
                     setIsStarted(false)
                 } else {
-                    increment()
+                    increment();
                 }
             }, 60000)
-        } return function() {
-            clearInterval(time)
-        }
+
+            return function () {
+              clearInterval(timerID);
+            };
+        } 
     }, [isStarted])
 
     useEffect (()=>{

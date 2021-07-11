@@ -7,21 +7,21 @@ import {
   IonFooter,
   IonButton,
   IonAlert,
-  IonContent,
 } from "@ionic/react";
 import { useState } from "react";
-import { useBag } from "../bagContext";
+/* pensez à retirer les dépendances inutilisées */
 import { PageLayout } from "../components/PageLayout";
 import { useHealth } from "../useHealth";
 import { useTimer } from "../useTimer";
 import { useHistory } from "react-router";
 
-export function Bag() {
+/* pensez à bien (re)nommer vos composants en fonction de ce qu'ils font */
+export function Question() {
   const [selected, setSelected] = useState();
   const { playerTimer, increment, isStarted, setIsStarted } = useTimer();
   const { playerHealth, setPlayerHealth } = useHealth();
   const [showAlert, setShowAlert] = useState(false);
-  const [alertContent, setAlertContent] = useState({ header: '', message: '', });
+  const [alertContent, setAlertContent] = useState({ header: "", message: "" });
   const history = useHistory();
   return (
     <PageLayout
@@ -33,12 +33,19 @@ export function Bag() {
               expand="full"
               onClick={() => {
                 if (selected != "true") {
-                  setPlayerHealth(playerHealth - 10)
-                  setShowAlert(true)
-                  setAlertContent({ header: "Dommage", message: "Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie", })
+                  setPlayerHealth(playerHealth - 10);
+                  setShowAlert(true);
+                  setAlertContent({
+                    header: "Dommage",
+                    message:
+                      "Mauvaise réponse, la réponse était 1859 vous perdez 10 points de vie",
+                  });
                 } else {
-                  setShowAlert(true)
-                  setAlertContent({ header: "Bravo", message: "Vous avez bien répondu à la question", })
+                  setShowAlert(true);
+                  setAlertContent({
+                    header: "Bravo",
+                    message: "Vous avez bien répondu à la question",
+                  });
                 }
               }}
             >
@@ -48,34 +55,26 @@ export function Bag() {
         )
       }
     >
-      
-        <IonAlert
-          
-          isOpen={showAlert}
-          onDidDismiss={  ()=> history.push('/adventure/1/travel') }
-          
-          cssClass='my-custom-class'
-          header={alertContent.header}
-          message={alertContent.message}
-          buttons={[{text : 'Continuer', }]}
-        />
-       
-      
-
+      <IonAlert
+        isOpen={showAlert}
+        onDidDismiss={() => history.push("/adventure/1/travel")}
+        cssClass="my-custom-class"
+        header={alertContent.header}
+        message={alertContent.message}
+        buttons={[{ text: "Continuer" }]}
+      />
 
       <h1>Première épreuve</h1>
-      <p>
-        Trouver la date de construction du temple Saint-Etienne
-      </p>
-
-
+      <p>Trouver la date de construction du temple Saint-Etienne</p>
 
       <IonRadioGroup
         value={selected}
         onIonChange={(e) => setSelected(e.detail.value)}
       >
         <IonListHeader>
-          <IonLabel>Quand à débuté la construction du templs Saint-Etienne</IonLabel>
+          <IonLabel>
+            Quand à débuté la construction du templs Saint-Etienne
+          </IonLabel>
         </IonListHeader>
 
         <IonItem>
@@ -93,6 +92,6 @@ export function Bag() {
           <IonRadio value="false2" />
         </IonItem>
       </IonRadioGroup>
-    </PageLayout >
+    </PageLayout>
   );
 }
